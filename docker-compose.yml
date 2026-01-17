@@ -1,0 +1,13 @@
+services:
+  the-oops-bay:
+    image: medzhidovomar/the-oops-bay:latest
+    container_name: the-oops-bay
+    restart: unless-stopped
+    ports:
+      - "3010:3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./oops-data:/data
+    user: "0:999"
+    environment:
+      - DOCKER_API_VERSION=1.44 
